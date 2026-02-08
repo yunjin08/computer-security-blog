@@ -29,7 +29,7 @@ export default async function PostPage({ params }: Props) {
     <div className="post-layout">
       <aside className="brand-panel">
         <Link href="/" className="brand-logo">
-          CMSC 124 Blog
+          CMSC 134 Blog
         </Link>
         <p className="brand-tagline">Project Blog</p>
         <Link href="/" className="cta-button">

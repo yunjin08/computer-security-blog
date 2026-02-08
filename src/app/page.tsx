@@ -13,7 +13,7 @@ export default function Home() {
     <div className="layout">
       <aside className="brand-panel">
         <Link href="/" className="brand-logo">
-          CMSC 124 Blog
+          CMSC 134 Blog
         </Link>
         <p className="brand-tagline">Project Blog</p>
       </aside>
@@ -21,7 +21,7 @@ export default function Home() {
       <main className="main-panel">
         <header className="top-bar">
           <Link href="/" className="nav-brand">
-            CMSC 124 Blog
+            CMSC 134 Blog
           </Link>
           <nav className="nav-links">
             <Link href="/">Magazine</Link>
@@ -49,7 +49,7 @@ export default function Home() {
                         year: "numeric",
                       }).replace(".", "/")}
                     </span>
-                    <span className="feature-mag">CMSC 124 Blog</span>
+                    <span className="feature-mag">CMSC 134 Blog</span>
                   </div>
                 </div>
                 <h1 className="feature-title">{leadPost.title}</h1>

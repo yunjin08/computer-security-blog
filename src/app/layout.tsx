@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "CMSC 124 Blog",
+  title: "CMSC 134 Blog",
   description: "Project blog — weekly posts from Markdown",
 };
 

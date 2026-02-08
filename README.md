@@ -1,4 +1,4 @@
-# CMSC 124 Blog
+# CMSC 134 Blog
 
 A project blog that reads **Markdown files** from a **folder-per-week** structure and renders them in a fixed magazine layout (dark branding panel, main feature article, sidebar of related posts).
 
