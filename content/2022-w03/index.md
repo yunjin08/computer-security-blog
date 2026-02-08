@@ -1,7 +1,7 @@
 ---
 title: "How TikTok's personalized ads and 'For You' algorithm shape Gen Alpha's privacy and security risks"
 subtitle: "When the feed meets Gen Alpha's developing minds, privacy and security risks follow."
-date: "2025-02-08"
+date: "2026-02-08"
 author: "Al Glenrey Tilacas, Princess Parages, Jed Edison Donaire"
 excerpt: "How TikTok's For You algorithm and personalized ads create distinct privacy and security risks for Gen Alpha—and what it would mean to design for their vulnerabilities."
 heroImage: "hero.webp"

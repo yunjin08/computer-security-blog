@@ -22,7 +22,7 @@ Open [http://localhost:3000](http://localhost:3000). The homepage shows the late
 
 ## Adding a new week
 
-1. Create a folder: `content/2025-w06/` (or your year/week).
+1. Create a folder: `content/2026-w06/` (or your year/week).
 2. Add `index.md` (and optionally more `.md` files) with the frontmatter from `CONTENT_FORMAT.md`.
 3. Add images (e.g. `hero.jpg`) in the same folder and set `heroImage: "hero.jpg"` in frontmatter.
 
