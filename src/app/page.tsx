@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { getAllWeeks, getContentImageUrl } from "@/lib/blog";
-import { ContentImage } from "@/components/ContentImage";
 
 export default function Home() {
   const weeks = getAllWeeks();
@@ -46,8 +45,9 @@ export default function Home() {
             {leadPost && (
               <>
                 <div className="feature-image-wrap">
-                  <ContentImage
+                  <img
                     src={getContentImageUrl(leadPost.weekId, leadPost.heroImage)}
+                    alt=""
                     className="feature-image"
                   />
                   <div className="feature-date-block">
@@ -65,8 +65,9 @@ export default function Home() {
                 <p className="feature-excerpt">{leadPost.excerpt}</p>
                 <article className="feature-card">
                   <div className="feature-card-thumb">
-                    <ContentImage
+                    <img
                       src={getContentImageUrl(leadPost.weekId, leadPost.thumbnail ?? leadPost.heroImage)}
+                      alt=""
                     />
                   </div>
                   <div className="feature-card-body">
@@ -104,8 +105,9 @@ export default function Home() {
                 className="sidebar-card"
               >
                 <div className="sidebar-card-image">
-                  <ContentImage
+                  <img
                     src={getContentImageUrl(post.weekId, post.thumbnail ?? post.heroImage)}
+                    alt=""
                   />
                 </div>
                 <div className="sidebar-card-text">
