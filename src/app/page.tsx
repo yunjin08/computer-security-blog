@@ -13,9 +13,9 @@ export default function Home() {
     <div className="layout">
       <aside className="brand-panel">
         <Link href="/" className="brand-logo">
-          FYRRE
+          CMSC 124 Blog
         </Link>
-        <p className="brand-tagline">MAGAZINE & BLOG WEBSITE</p>
+        <p className="brand-tagline">Project Blog</p>
         <a
           href="https://webflow.com"
           target="_blank"
@@ -29,7 +29,7 @@ export default function Home() {
       <main className="main-panel">
         <header className="top-bar">
           <Link href="/" className="nav-brand">
-            FYRRE MAGAZINE
+            CMSC 124 Blog
           </Link>
           <nav className="nav-links">
             <Link href="/">Magazine</Link>
@@ -57,7 +57,7 @@ export default function Home() {
                         year: "numeric",
                       }).replace(".", "/")}
                     </span>
-                    <span className="feature-mag">FYRRE MAGAZIN</span>
+                    <span className="feature-mag">CMSC 124 Blog</span>
                   </div>
                 </div>
                 <h1 className="feature-title">{leadPost.title}</h1>

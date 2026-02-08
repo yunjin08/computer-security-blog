@@ -1,21 +1,81 @@
 ---
-title: "ART & LIFE"
-subtitle: "DON'T CLOSE YOUR EYES"
-date: "2022-01-19"
-author: "FYRRE Editorial"
-excerpt: "A look at how art and daily life intertwine, and why keeping your eyes open changes what you see."
+title: "How TikTok's personalized ads and 'For You' algorithm shape Gen Alpha's privacy and security risks"
+subtitle: "When the feed meets Gen Alpha's developing minds, privacy and security risks follow."
+date: "2025-02-08"
+author: "Al Glenrey Tilacas, Princess Parages, Jed Edison Donaire"
+excerpt: "How TikTok's For You algorithm and personalized ads create distinct privacy and security risks for Gen Alpha—and what it would mean to design for their vulnerabilities."
 heroImage: "hero.jpg"
 thumbnail: "hero.jpg"
 ---
 
-This is the **lead post** for this week. The main body is written in Markdown.
+We grew up being told the internet is dangerous, but for Gen Alpha, the internet isn't a place you "go" anymore. It's just where life happens, in the background of breakfast, homework, and car rides. TikTok sits right in the center of that routine, feeding kids a never‑ending stream of videos that already seem to know them better than their parents do. The "For You" page doesn't just guess what they like; it learns what keeps them there, what makes them swipe slower, what makes them tap. And this isn't a small, niche habit. By 2024, more than 36 million kids ages 0–11 were regular internet users; over 11 million more than teens aged 12–17 (King, 2024). Nearly two‑thirds of Alphas aged 8–10 spend up to four hours a day on social media (Piacenza, 2024), and an estimated 64% of kids 8–12 use YouTube and TikTok every single day (Raffoul et al., 2023). More than 30% of Gen Alpha reportedly watch YouTube/Shorts for over two hours daily (Siu & Siu, 2024), and among Alphas under 9, time spent gaming jumped by 65% between 2020 and 2024, from an average of 23 to 38 minutes a day. Just over half (51%) of kids 0–8 already have their own tablet or phone, and about one in five use those devices to fall asleep, during meals, or to regulate emotions (Common Sense Media, 2025). In other words, screens are not an add‑on to their lives, they are the fabric.
 
-You can use normal paragraphs, **bold**, *italic*, lists, and so on. Images in the same week folder can be referenced by path, e.g. `hero.jpg` for the hero image.
+But behind the playful filters and catchy sounds is a socio‑technical system that depends on collecting children and teenager's data, profiling their interests, and nudging them toward particular content and behaviors. Investigations by regulators and watchdogs have already found that TikTok collects large amounts of data from underage users, uses this data to target content and advertising, and has not always provided adequate safeguards or transparency around children's information. When this system meets Gen Alpha's developing cognitive and social skills, it creates distinct privacy and security risks.
 
-More content follows below. The design uses this as the large feature article with the big headline and hero image.
+This paper unpacks that question by first looking at how the For You algorithm actually works and what it optimizes for, then turning to what makes Gen Alpha, in particular, so easy to fold into its logic. From there, it follows the three main fault lines that open up: the way TikTok quietly turns oversharing into a default social behavior, the way persuasive and personalized ads blend into the feed and train kids to click before thinking, and the way "relevant" recommendations can slide into harmful content spirals that affect both wellbeing and judgment. Taken together, these are not just content or parenting problems but human‑factors security issues, and the rest of the paper asks what it would mean to design platforms, policies, and everyday practices that actually take Gen Alpha's vulnerabilities and agency seriously.
 
----
+## Understanding TikTok's "For You" Logic
 
-## Section heading
+To understand the risks, you have to start with what the system is actually trying to do. TikTok is not built to show you the best videos. It is built to keep you watching. The For You page is where that goal becomes routine. Instead of asking users to search, follow, or consciously choose what they want, the app drops them straight into an autoplay feed that keeps moving with almost no friction. Videos load fast, the next clip starts before you can think about the last one, and there is no natural stopping point except closing the app. For Gen Alpha, this makes scrolling feel less like a set of decisions and more like background life.
 
-You can add more sections. Each week folder can have multiple `.md` files; use `index.md` as the feature post and others will appear in the sidebar or list.
+The algorithm does not need a child to fill out a survey about their interests. It learns from behavior, second by second. It does not only rely on obvious actions like likes, comments, or shares. It also watches watch time, replays, pauses, and even the way a user's scrolling slows down when something catches their attention. Over time, these small behaviors build a profile of what holds a user in place, and the feed adjusts accordingly. What feels like relevance is the outcome of constant behavioral feedback, tuned to keep engagement high, not to encourage reflection or restraint. That means security and privacy are not just abstract settings buried in a menu. They are byproducts of a system that is constantly observing, recording, and inferring. For young users, this often includes data trails they do not recognize as sensitive, like patterns in their viewing tied to time of day, apparent mood, or the locations they routinely appear in (Bradbury, 2025).
+
+What makes this a human‑factors problem is that the algorithm is not "evil" in a cartoon sense, it is simply optimized for a goal that ignores the limits and vulnerabilities of a child. It does not know where curiosity ends and obsession begins. It does not care whether a video reveals a school logo, a street sign, or a bedroom layout. It only cares that the combination of content and user produces watch time. That gap between what the system optimizes for and what actually matters for a child's safety is where many of the security issues start to grow (Pollini et al., 2021). Seen this way, the For You page is less a neutral window onto the world and more a mirror that slowly reshapes itself around the parts of a child that are most responsive. The longer they stay, the sharper that mirror becomes, and the more confident the system feels in nudging them toward particular topics, aesthetics, and behaviors, including those that quietly widen their attack surface.
+
+## Why Gen Alpha Fits So Easily
+
+What makes TikTok work so well on Gen Alpha is not just the app itself, but the moment in life when kids first encounter it. Many of them are introduced to screens early, often before they have a clear sense of what privacy is or what it means for a platform to quietly track what they watch, like, or replay. Research has shown that a large share of children already use digital devices daily before reaching their teenage years, with screens becoming part of routines around meals, rest, and emotional regulation (Common Sense Media, 2025). In that context, scrolling is not something they consciously "pick up" later. It is already woven into everyday life. TikTok does not feel like a separate online space that demands careful choices. It feels normal, familiar, and always there in the background.
+
+Gen Alpha is also at an age where sharing often feels like play. Posting a video, copying a trend, or showing small parts of daily life can feel harmless, even fun. TikTok's design reinforces this by rewarding visibility quickly. Likes, comments, and views can arrive within minutes, especially when content feels personal or relatable. Studies on children's social media use suggest that this kind of fast feedback strengthens the link between sharing and social validation, making visibility feel valuable and silence feel like being left out (Raffoul et al., 2023). Over time, this trains habits where posting becomes automatic, and questions about who is watching or what can be inferred from a video fade into the background.
+
+And TikTok is built around speed. Short videos, fast jokes, quick emotions, constant movement. It does not ask kids to slow down or reflect. It just keeps going, and it keeps adjusting based on what holds their attention. The pace leaves little room for pause, because one clip ends and the next starts right away, and scrolling becomes more automatic than deliberate. In that setup, it is not surprising that Gen Alpha fits into the system so easily. It is not because they are careless. It is because the app meets them where they already are, then shapes the experience around their habits, before they have the chance to build stronger limits.
+
+## When Sharing and Clicking Become Automatic
+
+On TikTok, sharing does not always feel like sharing. A lot of it happens in the same casual way kids talk to friends. A quick "day in my life," a room tour, a school fit check, a clip filmed on the way home. These posts can look harmless, even sweet, because they feel like small slices of ordinary life. But the platform quietly rewards this kind of visibility. The more personal and specific a video is, the more likely it is to pull reactions, comments, and attention. Over time, that teaches a simple habit: being open gets you seen, and being seen feels like the point.
+
+The same thing happens with clicking. Personalized ads do not arrive like obvious commercials. They show up dressed as content, using the same sounds, jokes, and pacing as everything else on the For You page. A creator recommends a product as if they are just sharing a discovery. A trend turns into a shopping link. A "hack" ends with a tap. In that setup, clicking stops feeling like a choice you weigh. It becomes part of the rhythm of scrolling. And once clicking is a reflex, it becomes easier to move from TikTok into external pages and offers without noticing how quickly the situation changed.
+
+This is where the privacy and security risks start to look less like rare accidents and more like the normal outcome of the system. When a platform makes sharing feel like play and clicking feel like routine, young users are not constantly asking who is watching, what is being collected, or where a link might lead. They are doing what the design makes easiest. The problem is not only that Gen Alpha overshares or clicks too fast. It is that TikTok's ecosystem trains those actions until they feel automatic, and the consequences only show up later.
+
+## Rabbit Holes and Harmful Spirals
+
+Once the For You page has enough signals, it does more than reflect interests; it intensifies them. A child who lingers on a few videos about appearance, fitness, pranks, or emotional struggles is likely to see more of the same, often in sharper or more extreme forms. What begins as curiosity can quietly narrow into a loop where similar messages repeat and reinforce each other, making certain ideas feel normal, urgent, or unavoidable (Amnesty International, 2023). For Gen Alpha, whose sense of self and social norms are still forming, these spirals can amplify anxiety, body dissatisfaction, fear, or risky behaviors, not because the content is explicitly labeled as harmful, but because the algorithm keeps presenting it as relevant and popular (The Annie E. Casey Foundation, 2025).
+
+These rabbit holes also carry less visible security risks. As content becomes more niche and emotionally charged, kids may be nudged toward creators, communities, or links that promise answers, validation, or quick fixes. This can include dubious mental-health advice, unsafe challenges, or external sites asking for personal details, sign-ups, or purchases. Repeated exposure trains young users to trust what feels familiar in their feed, even when it comes from strangers. In this way, the same recommendation logic that personalizes entertainment can lower skepticism and increase susceptibility to manipulation, scams, or grooming behaviors, expanding a child's attack surface without a single obvious "danger moment."
+
+What makes these spirals especially hard to interrupt is that they are invisible from the inside. TikTok does not show users the paths they are being guided down or the alternatives they are no longer seeing. For Gen Alpha, the feed can start to feel like a neutral reflection of reality rather than a filtered slice shaped by engagement metrics. That blurring matters. When harmful content, emotional triggers, and persuasive links are delivered seamlessly and repeatedly, the risks are no longer just about what kids watch, but about how their judgment, attention, and sense of safety are gradually reshaped. In this sense, harmful content rabbit holes are not separate from privacy and security concerns; they are one of the main ways those risks take hold in everyday use.
+
+## Rethinking Security and Where We Go From Here
+
+Looking at all of this through human factors in computer security means accepting that we cannot patch these problems with technical fixes alone. Encryption, access controls, and backend safeguards matter, but they do not touch the core of what is happening in Gen Alpha's TikTok experience. The real battleground is how the system meets their attention, emotions, and social lives. If security continues to imagine a careful, text‑reading, rational adult user, it will keep missing the point (Jun et al., 2025).
+
+Rethinking security here means designing for the actual child on the other side of the screen. Privacy notices and safety prompts have to speak in images, stories, and clear choices, not legal paragraphs. Defaults should quietly over‑protect rather than under‑protect, especially for accounts that are likely to belong to minors. Making an account discoverable, opening DMs to strangers, or following external links should feel like conscious, slightly effortful acts, not invisible background settings (Mainville, 2024).
+
+It also means challenging the idea that engagement is the only metric that matters. If the algorithm is rewarded purely for keeping eyes locked on the feed, it will keep exploiting whatever human vulnerabilities it can, including those that damage wellbeing and increase susceptibility to harm. Building in child‑safety and mental‑health constraints at the level of ranking and recommendation is not a luxury add‑on; it is a basic security requirement once children have become core users. Outside the platform, policies and everyday practices have to evolve too. Parents and educators need tools that surface meaningful signals, not just a maze of toggles they do not have time to learn. They should not have to choose between full surveillance and total ignorance. Gen Alpha themselves need language and frameworks that help them see what the system is doing around them, so that agency does not become another empty word.
+
+None of this will make TikTok, or any platform, perfectly safe. But if security is a human problem embedded in design, culture, and development, then the goal shifts. It becomes less about blaming children for "mistakes" and more about refusing to build systems that treat their attention and data as cheap fuel. For a generation that is learning to grow up inside the feed, that shift might be the difference between simply surviving online and having a real chance to shape their own digital lives.
+
+## References
+
+- **Amnesty International.** (2023). *Global: TikTok's 'For You' feed risks pushing children and young people towards harmful mental health content.* [amnesty.org](https://www.amnesty.org/en/latest/news/2023/11/tiktok-risks-pushing-children-towards-harmful-content/)
+
+- **Bradbury, D.** (2025). *TikTok is misusing kids' data, says privacy watchdog.* Malwarebytes. [malwarebytes.com](https://www.malwarebytes.com/blog/news/2025/09/tiktok-is-misusing-kids-data-says-privacy-watchdog)
+
+- **Common Sense Media.** (2025). *The 2025 Common Sense Census: Media use by kids zero to eight.* [commonsensemedia.org](https://www.commonsensemedia.org/research/the-2025-common-sense-census-media-use-by-kids-zero-to-eight)
+
+- **Jun, D. T. J., Rafsanjani, A. S., Aslam, S., & Behjati, M.** (2025). Human Factors in Information Security: A Quantitative Study with Technical Solutions to Prevent Social Engineering Attacks. *Digital Threats Research and Practice*, 6(4), 1–35. [doi.org/10.1145/3767320](https://doi.org/10.1145/3767320)
+
+- **King, J.** (2024). *Guide to Gen Alpha, the generation marketers need to start attracting.* EMARKETER. [emarketer.com](https://www.emarketer.com/learningcenter/guides/guide-generation-alpha/)
+
+- **Mainville, D.** (2024). *The Human Factors in Cyber Security: Strategies for Effective Defense.* Navvia. [navvia.com](https://navvia.com/blog/exploring-the-human-factors-in-cyber-security)
+
+- **Pollini, A., Callari, T. C., Tedeschi, A., Ruscio, D., Save, L., Chiarugi, F., & Guerri, D.** (2021). Leveraging human factors in cybersecurity: an integrated methodological approach. *Cognition Technology & Work*, 24(2), 371–390. [doi.org/10.1007/s10111-021-00683-y](https://doi.org/10.1007/s10111-021-00683-y)
+
+- **Piacenza, J.** (2024). *Growing up Alpha: The youngest generation's media & entertainment habits.* Morning Consult. [morningconsult.com](https://pro.morningconsult.com/analysis/gen-alpha-media-social-trends-2024)
+
+- **Raffoul, A., Ward, Z. J., Santoso, M., Kavanaugh, J. R., & Austin, S. B.** (2023). Social media platforms generate billions of dollars in revenue from U.S. youth: Findings from a simulated revenue model. *PLOS ONE*, 18(12), e0295337. [doi.org/10.1371/journal.pone.0295337](https://doi.org/10.1371/journal.pone.0295337)
+
+- **Siu, A., & Siu, A.** (2024). *How to prepare for Gen Alpha: Invest in YouTube, gaming and learning.* Digiday. [digiday.com](https://digiday.com/media-buying/how-to-prepare-for-gen-alpha-invest-in-youtube-gaming-and-learning/)
+
+- **The Annie E. Casey Foundation.** (2025, June 29). *The impact of social media and technology on Gen Alpha.* [aecf.org](https://www.aecf.org/blog/impact-of-social-media-on-gen-alpha)

@@ -1,6 +1,6 @@
-# FYRRE Magazine & Blog
+# CMSC 124 Blog
 
-A blog that reads **Markdown files** from a **folder-per-week** structure and renders them in a fixed magazine layout inspired by the FYRRE design (dark branding panel, main feature article, sidebar of related posts).
+A project blog that reads **Markdown files** from a **folder-per-week** structure and renders them in a fixed magazine layout (dark branding panel, main feature article, sidebar of related posts).
 
 ## How it works
 
