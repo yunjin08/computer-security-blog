@@ -60,7 +60,7 @@ export function getWeek(weekId: string): Week | null {
     const slug = file.replace(/\.md$/, "");
     const fullPath = path.join(weekPath, file);
     const raw = fs.readFileSync(fullPath, "utf-8");
-    const { data, content } = matter(raw) as { data: PostMeta; content: string };
+    const { data, content } = matter(raw) as unknown as { data: PostMeta; content: string };
 
     if (!data.title || !data.date) continue;
 
