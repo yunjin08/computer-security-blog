@@ -15,6 +15,10 @@
   margin: 0;
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 html,
 body {
   max-width: 100vw;
@@ -22,6 +26,13 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   color: var(--text-primary);
   background: #fff;
+}
+
+@media (max-width: 768px) {
+  html,
+  body {
+    font-size: 16px;
+  }
 }
 
 a {
@@ -314,6 +325,7 @@ img {
   color: var(--text-primary);
 }
 
+/* Tablet and below: stack layout */
 @media (max-width: 1024px) {
   .layout {
     flex-direction: column;
@@ -322,9 +334,155 @@ img {
     width: 100%;
     min-width: unset;
     padding: 2rem;
+    justify-content: flex-start;
+  }
+  .brand-logo {
+    font-size: 2.5rem;
   }
   .content-grid {
     grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+  .feature-title {
+    font-size: 2rem;
+  }
+  .feature-subtitle {
+    font-size: 1.25rem;
+  }
+}
+
+/* Mobile: compact spacing and touch-friendly */
+@media (max-width: 640px) {
+  .brand-panel {
+    padding: 1.25rem 1rem;
+  }
+  .cta-button {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.25rem;
+  }
+  .brand-logo {
+    font-size: 1.75rem;
+  }
+  .brand-tagline {
+    margin-bottom: 0;
+    font-size: 0.7rem;
+  }
+  .top-bar {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+  .nav-brand {
+    font-size: 0.9rem;
+  }
+  .nav-links {
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+  .content-grid {
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+  .feature-image-wrap {
+    margin-bottom: 1rem;
+  }
+  .feature-title {
+    font-size: 1.5rem;
+    line-height: 1.25;
+  }
+  .feature-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+  .feature-excerpt {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  .feature-card {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .feature-card-thumb {
+    width: 100%;
+    min-width: unset;
+    height: 160px;
+  }
+  .read-more {
+    display: inline-block;
+    padding: 0.5rem 0;
+    min-height: 44px;
+    line-height: 2;
+  }
+  .sidebar-card {
+    padding: 0.75rem 0;
+    min-height: 44px;
+    align-items: center;
+  }
+  .sidebar-card-image {
+    width: 64px;
+    min-width: 64px;
+    height: 64px;
+  }
+  .sidebar-card-title {
+    font-size: 0.9rem;
+  }
+  .sidebar-card-excerpt {
+    font-size: 0.75rem;
+  }
+  .about-section,
+  .authors-section {
+    padding: 1.5rem 1rem;
+  }
+  .about-text,
+  .authors-list {
+    font-size: 0.95rem;
+  }
+}
+
+/* Post page mobile */
+@media (max-width: 640px) {
+  .post-layout {
+    flex-direction: column;
+  }
+  .post-main {
+    padding: 1rem;
+  }
+  .post-back {
+    min-height: 44px;
+    line-height: 2.5;
+    padding: 0.25rem 0;
+  }
+  .post-title {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+  .post-subtitle {
+    font-size: 1.05rem;
+  }
+  .post-meta {
+    font-size: 0.85rem;
+  }
+  .post-body {
+    font-size: 0.95rem;
+  }
+  .post-body h2 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-logo {
+    font-size: 1.5rem;
+  }
+  .feature-title {
+    font-size: 1.35rem;
+  }
+  .feature-subtitle {
+    font-size: 1rem;
   }
 }
 
