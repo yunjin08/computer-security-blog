@@ -4,8 +4,8 @@ subtitle: "When the feed meets Gen Alpha's developing minds, privacy and securit
 date: "2025-02-08"
 author: "Al Glenrey Tilacas, Princess Parages, Jed Edison Donaire"
 excerpt: "How TikTok's For You algorithm and personalized ads create distinct privacy and security risks for Gen Alpha—and what it would mean to design for their vulnerabilities."
-heroImage: "hero.jpg"
-thumbnail: "hero.jpg"
+heroImage: "hero.webp"
+thumbnail: "hero.webp"
 ---
 
 We grew up being told the internet is dangerous, but for Gen Alpha, the internet isn't a place you "go" anymore. It's just where life happens, in the background of breakfast, homework, and car rides. TikTok sits right in the center of that routine, feeding kids a never‑ending stream of videos that already seem to know them better than their parents do. The "For You" page doesn't just guess what they like; it learns what keeps them there, what makes them swipe slower, what makes them tap. And this isn't a small, niche habit. By 2024, more than 36 million kids ages 0–11 were regular internet users; over 11 million more than teens aged 12–17 (King, 2024). Nearly two‑thirds of Alphas aged 8–10 spend up to four hours a day on social media (Piacenza, 2024), and an estimated 64% of kids 8–12 use YouTube and TikTok every single day (Raffoul et al., 2023). More than 30% of Gen Alpha reportedly watch YouTube/Shorts for over two hours daily (Siu & Siu, 2024), and among Alphas under 9, time spent gaming jumped by 65% between 2020 and 2024, from an average of 23 to 38 minutes a day. Just over half (51%) of kids 0–8 already have their own tablet or phone, and about one in five use those devices to fall asleep, during meals, or to regulate emotions (Common Sense Media, 2025). In other words, screens are not an add‑on to their lives, they are the fabric.

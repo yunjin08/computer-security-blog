@@ -275,6 +275,45 @@ img {
   font-size: 0.9em;
 }
 
+.about-section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  border-top: 1px solid var(--border);
+}
+.about-title {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+.about-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  max-width: 48rem;
+}
+
+.authors-section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  border-top: 1px solid var(--border);
+}
+.authors-title {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+.authors-list {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-primary);
+}
+
 @media (max-width: 1024px) {
   .layout {
     flex-direction: column;

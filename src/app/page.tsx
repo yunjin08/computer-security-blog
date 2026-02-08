@@ -16,14 +16,6 @@ export default function Home() {
           CMSC 124 Blog
         </Link>
         <p className="brand-tagline">Project Blog</p>
-        <a
-          href="https://webflow.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="cta-button"
-        >
-          + webflow TEMPLATE
-        </a>
       </aside>
 
       <main className="main-panel">
@@ -118,6 +110,22 @@ export default function Home() {
             ))}
           </aside>
         </div>
+
+        <section id="about" className="about-section">
+          <h2 className="about-title">About</h2>
+          <p className="about-text">
+            This is a blog for CMSC 134 — Introduction to Security. We write about security in computers and argue from evidence and research.
+          </p>
+        </section>
+
+        <section id="authors" className="authors-section">
+          <h2 className="authors-title">Authors</h2>
+          <p className="authors-list">
+            Al Glenrey Tilacas<br />
+            Princess Parages<br />
+            Jed Edison Donaire
+          </p>
+        </section>
       </main>
     </div>
   );
