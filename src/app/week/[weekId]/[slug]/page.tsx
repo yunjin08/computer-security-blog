@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import { getPost, getContentImageUrl, getAllWeeks } from "@/lib/blog";
+import { ContentImage } from "@/components/ContentImage";
 
 type Props = {
   params: Promise<{ weekId: string; slug: string }>;
@@ -43,7 +44,7 @@ export default async function PostPage({ params }: Props) {
         </Link>
 
         <div className="post-hero-wrap">
-          <img src={heroUrl} alt="" />
+          <ContentImage src={heroUrl} />
         </div>
 
         <h1 className="post-title">{post.title}</h1>

@@ -19,8 +19,22 @@ export async function GET(request: NextRequest) {
   }
 
   const filePath = path.join(CONTENT_DIR, week, safeFile);
-  if (!filePath.startsWith(CONTENT_DIR) || !fs.existsSync(filePath)) {
+  if (!filePath.startsWith(CONTENT_DIR)) {
     return NextResponse.json({ error: "Not found" }, { status: 404 });
+  }
+
+  if (!fs.existsSync(filePath)) {
+    // Return a 1x1 gray PNG placeholder so layout doesn't break when image is missing
+    const placeholder = Buffer.from(
+      "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+      "base64"
+    );
+    return new NextResponse(placeholder, {
+      headers: {
+        "Content-Type": "image/png",
+        "Cache-Control": "public, max-age=60",
+      },
+    });
   }
 
   const buffer = fs.readFileSync(filePath);

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getAllWeeks, getContentImageUrl } from "@/lib/blog";
+import { ContentImage } from "@/components/ContentImage";
 
 export default function Home() {
   const weeks = getAllWeeks();
@@ -45,14 +46,9 @@ export default function Home() {
             {leadPost && (
               <>
                 <div className="feature-image-wrap">
-                  <img
+                  <ContentImage
                     src={getContentImageUrl(leadPost.weekId, leadPost.heroImage)}
-                    alt=""
                     className="feature-image"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).style.background = "#e5e5e5";
-                      (e.target as HTMLImageElement).src = "";
-                    }}
                   />
                   <div className="feature-date-block">
                     <span className="feature-date">
@@ -69,13 +65,8 @@ export default function Home() {
                 <p className="feature-excerpt">{leadPost.excerpt}</p>
                 <article className="feature-card">
                   <div className="feature-card-thumb">
-                    <img
+                    <ContentImage
                       src={getContentImageUrl(leadPost.weekId, leadPost.thumbnail ?? leadPost.heroImage)}
-                      alt=""
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).style.background = "#ddd";
-                        (e.target as HTMLImageElement).src = "";
-                      }}
                     />
                   </div>
                   <div className="feature-card-body">
@@ -113,13 +104,8 @@ export default function Home() {
                 className="sidebar-card"
               >
                 <div className="sidebar-card-image">
-                  <img
+                  <ContentImage
                     src={getContentImageUrl(post.weekId, post.thumbnail ?? post.heroImage)}
-                    alt=""
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).style.background = "#e0e0e0";
-                      (e.target as HTMLImageElement).src = "";
-                    }}
                   />
                 </div>
                 <div className="sidebar-card-text">
