@@ -4,8 +4,8 @@ subtitle: "Stack Smash Attack — Writeup"
 date: "2026-03-09"
 author: "Jed Edison Donaire"
 excerpt: "Exploiting a buffer overflow in a 32-bit C program by overwriting the saved return address with shellcode that calls exit(1), using gets() and the x86 int $0x80 syscall interface."
-heroImage: "hero.jpg"
-thumbnail: "hero.jpg"
+heroImage: "hero.png"
+thumbnail: "hero.png"
 ---
 
 ## 1. Objective

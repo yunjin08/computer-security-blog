@@ -27,14 +27,18 @@ export type Week = {
   leadPost: Post | null;
 };
 
-function getWeekFolders(): string[] {
+/** Folder names like writeup1, writeup2; sorted by number descending (newest first). */
+function getWriteupFolders(): string[] {
   if (!fs.existsSync(CONTENT_DIR)) return [];
-  return fs
+  const dirs = fs
     .readdirSync(CONTENT_DIR, { withFileTypes: true })
-    .filter((d) => d.isDirectory())
-    .map((d) => d.name)
-    .sort()
-    .reverse();
+    .filter((d) => d.isDirectory() && /^writeup\d+$/.test(d.name))
+    .map((d) => d.name);
+  return dirs.sort((a, b) => {
+    const nA = parseInt(a.replace(/\D/g, ""), 10) || 0;
+    const nB = parseInt(b.replace(/\D/g, ""), 10) || 0;
+    return nB - nA;
+  });
 }
 
 function getMdFilesInDir(dirPath: string): string[] {
@@ -45,7 +49,7 @@ function getMdFilesInDir(dirPath: string): string[] {
 }
 
 export function getAllWeeks(): Week[] {
-  const folderNames = getWeekFolders();
+  const folderNames = getWriteupFolders();
   return folderNames.map((weekId) => getWeek(weekId)).filter(Boolean) as Week[];
 }
 

@@ -286,6 +286,86 @@ img {
   font-size: 0.9em;
 }
 
+.past-issues-section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  border-top: 1px solid var(--border);
+}
+.past-issues-title {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+.past-issues-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.past-issues-list li {
+  margin-bottom: 0;
+}
+.past-issues-card {
+  display: flex;
+  gap: 1.25rem;
+  padding: 0;
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1rem;
+}
+.past-issues-card:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.past-issues-card:hover {
+  text-decoration: none;
+}
+.past-issues-card:hover .past-issues-card-title {
+  text-decoration: underline;
+}
+.past-issues-card-image {
+  width: 160px;
+  min-width: 160px;
+  height: 100px;
+  background: #e5e5e5;
+  overflow: hidden;
+}
+.past-issues-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.past-issues-card-text {
+  flex: 1;
+  min-width: 0;
+}
+.past-issues-card-week {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+  display: block;
+}
+.past-issues-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+  line-height: 1.3;
+}
+.past-issues-card-excerpt {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin: 0;
+}
+
 .about-section {
   max-width: 1400px;
   margin: 0 auto;
@@ -433,9 +513,25 @@ img {
   .sidebar-card-excerpt {
     font-size: 0.75rem;
   }
+  .past-issues-section,
   .about-section,
   .authors-section {
     padding: 1.5rem 1rem;
+  }
+  .past-issues-card {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .past-issues-card-image {
+    width: 100%;
+    min-width: unset;
+    height: 140px;
+  }
+  .past-issues-card-title {
+    font-size: 0.95rem;
+  }
+  .past-issues-card-excerpt {
+    font-size: 0.8rem;
   }
   .about-text,
   .authors-list {

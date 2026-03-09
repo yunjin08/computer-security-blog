@@ -111,6 +111,37 @@ export default function Home() {
           </aside>
         </div>
 
+        {weeks.length > 1 && (
+          <section className="past-issues-section">
+            <h2 className="past-issues-title">Past issues</h2>
+            <ul className="past-issues-list">
+              {weeks.slice(1).map((week) => {
+                const post = week.leadPost ?? week.posts[0];
+                if (!post) return null;
+                return (
+                  <li key={week.id}>
+                    <Link href={`/week/${post.weekId}/${post.slug}`} className="past-issues-card">
+                      <div className="past-issues-card-image">
+                        <img
+                          src={getContentImageUrl(post.weekId, post.thumbnail ?? post.heroImage)}
+                          alt=""
+                        />
+                      </div>
+                      <div className="past-issues-card-text">
+                        <span className="past-issues-card-week">
+                        {week.id.replace(/^writeup(\d+)$/i, (_, n) => `Writeup ${n}`)}
+                      </span>
+                        <h3 className="past-issues-card-title">{post.title}</h3>
+                        <p className="past-issues-card-excerpt">{post.excerpt}</p>
+                      </div>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        )}
+
         <section id="about" className="about-section">
           <h2 className="about-title">About</h2>
           <p className="about-text">
