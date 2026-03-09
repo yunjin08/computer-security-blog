@@ -99,5 +99,6 @@ export function getPost(weekId: string, slug: string): Post | null {
 
 export function getContentImageUrl(weekId: string, filename: string): string {
   if (!filename) return "";
-  return `/api/content?week=${encodeURIComponent(weekId)}&file=${encodeURIComponent(filename)}`;
+  // Path-based URL so each image has a unique cache key (avoids CDN serving same image for all /api/content requests)
+  return `/api/content/${encodeURIComponent(weekId)}/${encodeURIComponent(filename)}`;
 }
