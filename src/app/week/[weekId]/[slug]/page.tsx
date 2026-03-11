@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import { getPost, getContentImageUrl, getAllWeeks } from "@/lib/blog";
+import { CodeBlock } from "@/components/CodeBlock";
 
 type Props = {
   params: Promise<{ weekId: string; slug: string }>;
@@ -53,7 +54,7 @@ export default async function PostPage({ params }: Props) {
         </div>
 
         <div className="post-body">
-          <ReactMarkdown>{post.content}</ReactMarkdown>
+          <ReactMarkdown components={{ code: CodeBlock }}>{post.content}</ReactMarkdown>
         </div>
       </main>
     </div>

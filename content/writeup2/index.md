@@ -74,6 +74,10 @@ Stack level 0, frame at 0xffffcda8:
   ebp at 0xffffcda0, eip at 0xffffcda4
 ```
 
+![GDB breakpoint and buffer address](/api/content/writeup2/writeup1.png)
+
+![Stack layout diagram](/api/content/writeup2/writeup2.png)
+
 From this output we learned the following layout in memory:
 
 - The buffer starts at address `0xffffcd98`
@@ -112,6 +116,8 @@ Program received signal SIGSEGV, Segmentation fault.
 0x42424242 in ?? ()   <-- EIP is now BBBB
 ```
 
+![EIP control confirmed in GDB](/api/content/writeup2/writeup3.png)
+
 This confirms we have full control over the return address.
 
 ### 4.3 Memory Dump Before and After gets()
@@ -131,6 +137,8 @@ We also inspected the raw stack memory before and after `gets()` was called to s
 0xffffcd98:  0x41 0x41 0x41 0x41 0x41 0x41 0x41 0x41
 0xffffcda0:  0x41 0x41 0x41 0x41 0x42 0x42 0x42 0x42
 ```
+
+![Memory dump before and after gets()](/api/content/writeup2/writeup4.png)
 
 The `A` bytes (0x41) filled up the buffer and overwrote EBP. The `B` bytes (0x42) then landed exactly on the return address, confirming our offset calculation was correct.
 
@@ -159,6 +167,8 @@ To get the actual machine code bytes for these instructions, we wrote them into 
 $ gcc -m32 -fno-stack-protector -fno-pie -std=c99 asm.c -o asm
 $ objdump -d asm > asmdump
 ```
+
+![objdump disassembly output](/api/content/writeup2/writeup5.png)
 
 From the disassembly output we extracted the machine code bytes:
 
@@ -244,6 +254,8 @@ We ran the exploit against the original `vuln` program and confirmed success:
 $ ./vuln < egg; echo $?
 1
 ```
+
+![Exploit result: exit code 1](/api/content/writeup2/writeup6.png)
 
 The program exited cleanly with exit code 1, which is exactly what the machine problem required. There was no segfault, no infinite loop, and no crash. The shellcode executed successfully, called `exit(1)`, and the process terminated with the correct code.
 

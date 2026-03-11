@@ -660,6 +660,13 @@ img {
   font-size: 0.875rem;
   line-height: 1.5;
 }
+/* When pre wraps syntax highlighter (div), let the highlighter own the look */
+.post-body pre:has(> div) {
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
 .post-body pre code {
   background: none;
   border: none;
