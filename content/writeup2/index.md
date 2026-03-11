@@ -2,7 +2,7 @@
 title: "Machine Problem 1: Exploiting a Stack Buffer Overflow to Execute exit(1)"
 subtitle: "Stack Smash Attack — Writeup"
 date: "2026-03-11"
-author: "Jed Edison Donaire"
+author: "Al Glenrey Tilacas, Princess Parages, Jed Edison Donaire"
 excerpt: "Exploiting a buffer overflow in a 32-bit C program by overwriting the saved return address with shellcode that calls exit(1), using gets() and the x86 int $0x80 syscall interface."
 heroImage: "hero.png"
 thumbnail: "hero.png"
@@ -82,15 +82,13 @@ From this output we learned the following layout in memory:
 
 ### 4.1 Stack Layout Diagram
 
-To visualize why this matters, here is how the stack looks at the moment `vuln()` is executing:
+To visualize why this matters, here is how the stack looks at the moment `vuln()` is executing, from higher memory addresses down to lower:
 
-**Higher Memory Addresses**
-
-| Saved Return Address (EIP) | ← we overwrite this |
-| Saved Frame Pointer (EBP)  |                     |
-| buffer[8]                  | ← shellcode goes here |
-
-**Lower Memory Addresses**
+| Memory (high → low) | Contents | Notes |
+|--------------------|----------|--------|
+| Higher addresses   | Saved Return Address (EIP) | ← we overwrite this |
+|                    | Saved Frame Pointer (EBP)  | |
+| Lower addresses    | buffer[8]                  | ← shellcode goes here |
 
 In simple terms:
 
@@ -140,11 +138,11 @@ The `A` bytes (0x41) filled up the buffer and overwrote EBP. The `B` bytes (0x42
 
 Shellcode is the machine code we want to inject and execute. Our goal is to call the Linux `exit(1)` system call. In x86 assembly on Linux, system calls are made by placing arguments in registers and then calling `int 0x80`. The exit syscall specifically requires:
 
-| Register | Value | Purpose        |
-|----------|-------|----------------|
-| EAX      | 1     | syscall number (exit) |
-| EBX      | 1     | exit code      |
-| int 0x80 | N/A   | trigger the syscall    |
+| Register   | Value | Purpose                |
+|------------|-------|------------------------|
+| EAX        | 1     | syscall number (exit)  |
+| EBX        | 1     | exit code              |
+| int 0x80   | N/A   | trigger the syscall    |
 
 In assembly instructions, this translates to:
 
@@ -269,4 +267,4 @@ Here is a complete recap of every step taken from start to finish:
 7. **Step 7:** Built the egg: 7 bytes of shellcode, 5 bytes of padding, then the return address written in little endian byte order.
 8. **Step 8:** Ran `./vuln < egg` and confirmed `echo $?` printed 1.
 
-This experiment demonstrates how easily a simple programming mistake such as using `gets()` can allow an attacker to hijack control flow and execute arbitrary code. The root cause is trusting user input without validation. Modern protections like stack canaries, ASLR, and non-executable stacks exist precisely to prevent this kind of attack, and this exercise showed exactly why they are necessary.
+This experiment demonstrates how easily a simple programming mistake such as using `gets()` can allow an attacker to hijack control flow and execute arbitrary code. In real systems, similar bugs in input-handling code have been exploited to run attacker-supplied shellcode and compromise entire services. The root cause is trusting user input without validation and writing beyond fixed-size buffers. Modern protections like stack canaries, ASLR, and non-executable stacks exist precisely to prevent this kind of attack, and this exercise showed exactly why they are necessary by temporarily turning those defenses off and observing how straightforward the exploit becomes.
