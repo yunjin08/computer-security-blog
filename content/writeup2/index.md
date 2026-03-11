@@ -88,11 +88,32 @@ From this output we learned the following layout in memory:
 
 To visualize why this matters, here is how the stack looks at the moment `vuln()` is executing, from higher memory addresses down to lower:
 
-| Memory (high → low) | Contents | Notes |
-|--------------------|----------|--------|
-| Higher addresses   | Saved Return Address (EIP) | ← we overwrite this |
-|                    | Saved Frame Pointer (EBP)  | |
-| Lower addresses    | buffer[8]                  | ← shellcode goes here |
+<table>
+  <thead>
+    <tr>
+      <th>Memory (high to low)</th>
+      <th>Contents</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Higher addresses</td>
+      <td>Saved Return Address (EIP)</td>
+      <td>We overwrite this</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Saved Frame Pointer (EBP)</td>
+      <td>(overwritten)</td>
+    </tr>
+    <tr>
+      <td>Lower addresses</td>
+      <td>buffer[8]</td>
+      <td>Shellcode goes here</td>
+    </tr>
+  </tbody>
+</table>
 
 In simple terms:
 
@@ -146,11 +167,32 @@ The `A` bytes (0x41) filled up the buffer and overwrote EBP. The `B` bytes (0x42
 
 Shellcode is the machine code we want to inject and execute. Our goal is to call the Linux `exit(1)` system call. In x86 assembly on Linux, system calls are made by placing arguments in registers and then calling `int 0x80`. The exit syscall specifically requires:
 
-| Register   | Value | Purpose                |
-|------------|-------|------------------------|
-| EAX        | 1     | syscall number (exit)  |
-| EBX        | 1     | exit code              |
-| int 0x80   | N/A   | trigger the syscall    |
+<table>
+  <thead>
+    <tr>
+      <th>Register</th>
+      <th>Value</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>EAX</td>
+      <td>1</td>
+      <td>syscall number (exit)</td>
+    </tr>
+    <tr>
+      <td>EBX</td>
+      <td>1</td>
+      <td>exit code</td>
+    </tr>
+    <tr>
+      <td>int 0x80</td>
+      <td>N/A</td>
+      <td>trigger the syscall</td>
+    </tr>
+  </tbody>
+</table>
 
 In assembly instructions, this translates to:
 

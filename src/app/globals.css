@@ -639,6 +639,30 @@ img {
   padding-left: 1.5rem;
 }
 
+/* Tables in posts */
+.post-body table {
+  width: 100%;
+  max-width: 100%;
+  margin: 1rem 0;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  overflow-wrap: break-word;
+}
+.post-body table th,
+.post-body table td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+}
+.post-body table th {
+  background: var(--card-bg);
+  font-weight: 600;
+}
+.post-body table tbody tr:nth-child(even) {
+  background: rgba(0, 0, 0, 0.02);
+}
+
 /* Code blocks and inline code in posts */
 .post-body code {
   font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;

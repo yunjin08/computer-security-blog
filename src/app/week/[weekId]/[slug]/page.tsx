@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 import { getPost, getContentImageUrl, getAllWeeks } from "@/lib/blog";
 import { CodeBlock } from "@/components/CodeBlock";
 
@@ -54,7 +55,7 @@ export default async function PostPage({ params }: Props) {
         </div>
 
         <div className="post-body">
-          <ReactMarkdown components={{ code: CodeBlock }}>{post.content}</ReactMarkdown>
+          <ReactMarkdown rehypePlugins={[rehypeRaw]} components={{ code: CodeBlock }}>{post.content}</ReactMarkdown>
         </div>
       </main>
     </div>
