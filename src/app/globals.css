@@ -663,6 +663,36 @@ img {
   background: rgba(0, 0, 0, 0.02);
 }
 
+/* 4.1 Stack layout diagram – colored rows like the reference image */
+.post-body table.stack-layout-table {
+  max-width: 32rem;
+}
+.post-body table.stack-layout-table td {
+  padding: 0.6rem 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+.post-body table.stack-layout-table tr.stack-label td {
+  background: #b8d4e8;
+  color: #1a3a4d;
+}
+.post-body table.stack-layout-table tr.stack-spacer td {
+  background: #fff;
+  padding: 0.2rem 1rem;
+  border-color: #eee;
+}
+.post-body table.stack-layout-table tr.stack-eip td {
+  background: #f5c6cb;
+  color: #721c24;
+}
+.post-body table.stack-layout-table tr.stack-ebp td {
+  background: #ffe5cc;
+  color: #7d4e0f;
+}
+.post-body table.stack-layout-table tr.stack-buffer td {
+  background: #c8e6c9;
+  color: #1b5e20;
+}
+
 /* Code blocks and inline code in posts */
 .post-body code {
   font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;

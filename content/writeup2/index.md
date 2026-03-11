@@ -86,31 +86,30 @@ From this output we learned the following layout in memory:
 
 ### 4.1 Stack Layout Diagram
 
-To visualize why this matters, here is how the stack looks at the moment `vuln()` is executing, from higher memory addresses down to lower:
+To visualize why this matters, here is how the stack looks at the moment `vuln()` is executing:
 
-<table>
-  <thead>
-    <tr>
-      <th>Memory (high to low)</th>
-      <th>Contents</th>
-      <th>Notes</th>
-    </tr>
-  </thead>
+<table class="stack-layout-table">
   <tbody>
-    <tr>
-      <td>Higher addresses</td>
-      <td>Saved Return Address (EIP)</td>
-      <td>We overwrite this</td>
+    <tr class="stack-label">
+      <td><strong>Higher Memory Addresses</strong></td>
     </tr>
-    <tr>
+    <tr class="stack-spacer">
       <td></td>
-      <td>Saved Frame Pointer (EBP)</td>
-      <td>(overwritten)</td>
     </tr>
-    <tr>
-      <td>Lower addresses</td>
-      <td>buffer[8]</td>
-      <td>Shellcode goes here</td>
+    <tr class="stack-eip">
+      <td><strong>Saved Return Address (EIP)</strong> &larr; we overwrite this</td>
+    </tr>
+    <tr class="stack-ebp">
+      <td><strong>Saved Frame Pointer (EBP)</strong></td>
+    </tr>
+    <tr class="stack-buffer">
+      <td><strong>buffer[8]</strong> &larr; shellcode goes here</td>
+    </tr>
+    <tr class="stack-spacer">
+      <td></td>
+    </tr>
+    <tr class="stack-label">
+      <td><strong>Lower Memory Addresses</strong></td>
     </tr>
   </tbody>
 </table>
