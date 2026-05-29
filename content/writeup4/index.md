@@ -316,7 +316,7 @@ As a bonus hardening measure, the `session_token` cookie was updated to use `htt
 | SQL Injection (auth bypass) | `login()` POST | String concatenation in credential query | Parameterized query with `?` placeholders |
 | SQL Injection (session lookup) | `login()` GET, `home()`, `posts()`, `logout()` | String concatenation with cookie value | Parameterized query with `?` placeholders |
 | SQL Injection (post insert) | `posts()` | String concatenation with form input | Parameterized query with `?` placeholders |
-| Stored XSS | `home.html` line 19 | `{{ post[0] \| safe }}` disables auto-escaping | Removed `\| safe`; Jinja2 escapes by default |
+| Stored XSS | `home.html` line 19 | The `safe` filter disables Jinja2 auto-escaping | Removed the `safe` filter; Jinja2 escapes by default |
 | CSRF (post creation) | `POST /posts` | No token validation | Synchronizer token pattern |
 | CSRF (login) | `POST /login` | No token validation | Synchronizer token pattern |
 
