@@ -311,14 +311,54 @@ As a bonus hardening measure, the `session_token` cookie was updated to use `htt
 
 ## 6. Summary of All Fixes
 
-| Vulnerability | Location | Root Cause | Fix |
-|---|---|---|---|
-| SQL Injection (auth bypass) | `login()` POST | String concatenation in credential query | Parameterized query with `?` placeholders |
-| SQL Injection (session lookup) | `login()` GET, `home()`, `posts()`, `logout()` | String concatenation with cookie value | Parameterized query with `?` placeholders |
-| SQL Injection (post insert) | `posts()` | String concatenation with form input | Parameterized query with `?` placeholders |
-| Stored XSS | `home.html` line 19 | The `safe` filter disables Jinja2 auto-escaping | Removed the `safe` filter; Jinja2 escapes by default |
-| CSRF (post creation) | `POST /posts` | No token validation | Synchronizer token pattern |
-| CSRF (login) | `POST /login` | No token validation | Synchronizer token pattern |
+<table>
+  <thead>
+    <tr>
+      <th>Vulnerability</th>
+      <th>Location</th>
+      <th>Root Cause</th>
+      <th>Fix</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SQL Injection (auth bypass)</td>
+      <td><code>login()</code> POST</td>
+      <td>String concatenation in credential query</td>
+      <td>Parameterized query with <code>?</code> placeholders</td>
+    </tr>
+    <tr>
+      <td>SQL Injection (session lookup)</td>
+      <td><code>login()</code> GET, <code>home()</code>, <code>posts()</code>, <code>logout()</code></td>
+      <td>String concatenation with cookie value</td>
+      <td>Parameterized query with <code>?</code> placeholders</td>
+    </tr>
+    <tr>
+      <td>SQL Injection (post insert)</td>
+      <td><code>posts()</code></td>
+      <td>String concatenation with form input</td>
+      <td>Parameterized query with <code>?</code> placeholders</td>
+    </tr>
+    <tr>
+      <td>Stored XSS</td>
+      <td><code>home.html</code> line 19</td>
+      <td>The <code>safe</code> filter disables Jinja2 auto-escaping</td>
+      <td>Removed the <code>safe</code> filter; Jinja2 escapes by default</td>
+    </tr>
+    <tr>
+      <td>CSRF (post creation)</td>
+      <td><code>POST /posts</code></td>
+      <td>No token validation</td>
+      <td>Synchronizer token pattern</td>
+    </tr>
+    <tr>
+      <td>CSRF (login)</td>
+      <td><code>POST /login</code></td>
+      <td>No token validation</td>
+      <td>Synchronizer token pattern</td>
+    </tr>
+  </tbody>
+</table>
 
 ## 7. Conclusion
 
